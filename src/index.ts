@@ -1,8 +1,8 @@
 
-function greet(name: string): void {
-  console.log("Hello", name);
+export function greet(name: string) {
+
+	return `Hola ${name}`
 }
 
-const readerName = "Medium Reader";
+console.log(greet('Paco'))
 
-greet(readerName);
