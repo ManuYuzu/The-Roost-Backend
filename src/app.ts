@@ -1,14 +1,29 @@
 import express from 'express';
+import morgan from 'morgan'
+import cors from 'cors'
+import helmet from 'helmet'
+
+// Routes imports
+import authRoutes from './routes/auth.routes'
 
 const app = express();
-const port = 3000;
 
 app.get('/', (req: any, res: any) => {
   res.send('The sedulous hyena ate the antelope!');
 });
-app.listen(port, (err: any) => {
-  if (err) {
-    return console.error(err);
-  }
-  return console.log(`server is listening on ${port}`);
-});
+
+// Settings
+app
+	.set('port', process.env.PORT || 3000)
+
+app
+	.use(cors())
+	.use(helmet())
+	.use(morgan('dev'))
+	.use(express.json())
+
+	// Routes
+app
+	.use('/api/auth', authRoutes)
+
+export default app
