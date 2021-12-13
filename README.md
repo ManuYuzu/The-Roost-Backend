@@ -33,7 +33,7 @@
 </ol>
 </details>
 
-## About The Roast · Coffee Shop
+## About The Roost · Coffee Shop
 
 ☕ *Spanish · Español*
 
@@ -96,7 +96,7 @@ yarn install
 
 ## **Usage**
 
-We're still working on The Roast · Coffee Shop.  Meanwhile, you can [check our progress](https://github.com/paolaski/The-Roost-Frontend/projects/1) (kanban board).
+We're still working on The Roost · Coffee Shop.  Meanwhile, you can [check our progress](https://github.com/paolaski/The-Roost-Frontend/projects/1) (kanban board).
 
 <small><p align="right">(<a href="#top">back to top</a>)</p></small>
 
