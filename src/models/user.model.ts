@@ -53,6 +53,7 @@ const addressSchema = new Schema(
 	}
 )
 
+
 const userSchema = new Schema(
 	{
 		email: {
@@ -102,5 +103,4 @@ userSchema.statics.comparePassword = async (password, inputPassword) => {
 }
 
 userSchema.plugin(mongoosePaginate)
-
 export const User = model<any>('User', userSchema)
