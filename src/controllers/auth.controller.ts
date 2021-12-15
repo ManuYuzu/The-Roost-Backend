@@ -1,5 +1,5 @@
 import { User } from '../models/user.model'
-
+import { verifyPwd } from '../helpers/hash'
 import jwt from 'jsonwebtoken'
 import config from '../config'
 
@@ -9,10 +9,10 @@ export const login = async (req: any, res: any) => {
 		const { email, password } = req.body
 
 		const user = await User.findOne({ email }).select('email password')
-		if (!user) return res.status(400).json({ msg: 'User not found' })
+		if (!user) return res.status(400).json({ message: 'User not found' })
 
-		const validatePassword = await User.schema.methods.comparePassword(password, user.password)
-		if (!validatePassword) return res.status(401).json({ msg: 'Invalid password' })
+		const validatePassword = await verifyPwd(password, user.password)
+		if (!validatePassword) return res.status(401).json({ message: 'Invalid password' })
 
 		const token = jwt.sign(
 			{ id: user._id },

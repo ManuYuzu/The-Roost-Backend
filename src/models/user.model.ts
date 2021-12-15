@@ -1,7 +1,5 @@
 import { model, Schema } from 'mongoose'
 import mongoosePaginate from 'mongoose-paginate'
-import bcrypt from 'bcryptjs'
-
 
 const addressSchema = new Schema(
 	{
@@ -53,7 +51,6 @@ const addressSchema = new Schema(
 	}
 )
 
-
 const userSchema = new Schema(
 	{
 		email: {
@@ -94,13 +91,6 @@ const userSchema = new Schema(
 	}
 )
 
-userSchema.statics.encryptPassword = async (password) => {
-	const salt = await bcrypt.genSalt(10)
-	return await bcrypt.hash(password, salt)
-}
-userSchema.statics.comparePassword = async (password, inputPassword) => {
-	return await bcrypt.compare(password, inputPassword)
-}
-
 userSchema.plugin(mongoosePaginate)
+
 export const User = model<any>('User', userSchema)

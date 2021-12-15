@@ -15,7 +15,7 @@ import './database'
 
 app.listen(config.PORT, () => {
 	console.info('>'.repeat(40))
-	console.info('       ᓚᘏᗢ "API-TEST-CRM-SERVICE"')
+	console.info('         ᓚᘏᗢ The Roost API ')
 	console.info(`       IS ALIVE AT PORT: ${config.PORT}`)
 	console.info('>'.repeat(40) + '\n')
 });
