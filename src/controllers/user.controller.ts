@@ -1,4 +1,3 @@
-// It must be a complete export. "allowSyntheticDefaultImports": true not working properly
 import { User } from '../models/user.model'
 import { hashPwd } from '../helpers/hash'
 
@@ -77,6 +76,8 @@ export const deleteUser = async (req: any, res: any) => {
 
 	try {
 		await User.findByIdAndDelete(req.params.userId)
+		// id o _id ?
+		// await User.findByIdAndDelete(res.locals.user._id)
 		return res.status(200).json({ message: 'User deleted' })
 
 	} catch (err: any) {
